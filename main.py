@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 import datetime
 from fastapi import FastAPI
 from fastapi import HTTPException
@@ -8,6 +9,15 @@ from Database import habitaciones_db
 from Database import reserva_db
 
 api = FastAPI()
+
+origins = [
+    "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
+    "http://localhost", "http://localhost:8080",
+]
+api.add_middleware(
+    CORSMiddleware, allow_origins=origins,
+    allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
+)
 
 
 @api.get("/clientes/{cedula}")
@@ -23,4 +33,4 @@ async def get_cliente(cedula: str):
 @api.post("/reserva/")
 async def create_reserva(reserva_to_db: reserva_modules.ReservaIn):
     reserva_db.save_reserva(reserva_to_db)
-    return reserva_to_db,"creada"
+    return reserva_to_db, "creada"
