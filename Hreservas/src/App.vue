@@ -3,14 +3,16 @@
     <div class="header">
       <h1>HReservas Online</h1>
       <nav>
-        <button v-on:click="init" >Inicio</button>
-        <button v-on:click="getBalance" >Buscar Cliente</button>
-        <button >Registar Cliente</button>
-        <button>Reservar</button>
-        <button>Ver Reserva</button>
+        <button v-on:click="init">Inicio</button>
+        <button v-on:click="buscar_cli">Buscar Cliente</button>
+        <button v-on:click="registrar_cli">Registar Cliente</button>
+        <button v-on:click="reservar">Reservar</button>
+        <button v-on:click="buscar_res">Ver Reserva</button>
       </nav>
     </div>
-    <div class="main-component"></div>
+    <div class="main-component">
+      <router-view></router-view>
+    </div>
     <div class="footer">
       <h2>Hoteles Ficticios S.A</h2>
     </div>
@@ -19,8 +21,29 @@
 <script>
 export default {
   name: "App",
-  components: {},
-  methods: {},
+  
+  methods: {
+    init: function () {
+      if (this.$route.name != "Inicio") {
+        this.$router.push({ name: "Inicio" });
+        this.$router.go({ name: "Inicio" });
+      }
+    },
+    reservar: function(){this.$router.push({ name: "nueva_reserva" });
+    this.$router.go({ name: "nueva_reserva" });
+    },
+    buscar_res: function(){this.$router.push({ name: "buscar_reserva" });
+    this.$router.go({ name: "buscar_reserva" });
+    },
+    buscar_cli: function(){this.$router.push({ name: "busqueda_Cliente" });
+    this.$router.go({ name: "busqueda_Cliente" });
+    },
+    registrar_cli: function(){this.$router.push({ name: "nuevo_cliente" });
+    this.$router.go({ name: "nuevo_cliente" });
+    },
+  },
+  
+  
 };
 </script>
 
