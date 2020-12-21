@@ -10,6 +10,5 @@ class ReservaIn(BaseModel):
     
     
 class ReservaOut(BaseModel):
-    
     habitacion: str
     cliente: str

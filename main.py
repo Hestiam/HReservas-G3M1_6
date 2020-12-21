@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi import HTTPException
 from Modules import clientes_modules
 from Modules import reserva_modules
+from Modules import habitaciones_modules
 from Database import clientes_db
 from Database import habitaciones_db
 from Database import reserva_db
@@ -34,3 +35,19 @@ async def get_cliente(cedula: str):
 async def create_reserva(reserva_to_db: reserva_modules.ReservaIn):
     reserva_db.save_reserva(reserva_to_db)
     return reserva_to_db, "creada"
+
+
+@api.post("/clientes/nuevo_cliente")
+async def create_cliente(cliente_to_db: clientes_modules.ClienteIn):
+    clientes_db.save_cliente(cliente_to_db)
+    return cliente_to_db, "Agregado satisfactoriamente"
+
+
+@api.get("/habitacion/{numero}")
+async def get_habitacion(numero: str):
+    habitacion_in_db = habitaciones_db.get_habitacion(numero)
+    if habitacion_in_db == None:
+        raise HTTPException(
+            status_code=404, detail="La habitación no se encuentra registrada")
+    habitacion_out = habitaciones_modules.HabitacionOut(**habitacion_in_db.dict())
+    return habitacion_out

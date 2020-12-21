@@ -26,6 +26,6 @@ def get_cliente(cedula: str):
     else:
         return None
 
-def update_cliente(cliente_in_db: clientInDB):
-    database_clientes[cliente_in_db.cedula] = cliente_in_db
+def save_cliente(cliente_in_db: clientInDB):
+    database_clientes[cliente_in_db.cedula]= cliente_in_db
     return cliente_in_db
