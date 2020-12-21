@@ -9,11 +9,11 @@ class habitacionInDB(BaseModel):
 
 database_habitacion = []
 database_habitacion = {
-    "304","305"
+    "304","305","306","307"
 }
 
 def get_habitacion(habitacion: str):
-    if habitacion in database_habitacion.keys():
+    if habitacion in database_habitacion:
         return database_habitacion[habitacion]
     else:
         return None
