@@ -23,12 +23,12 @@ const router = new vueRouter({
         {
             path: '/Cliente/buscar',
             name: "busqueda_Cliente",
-            component: Cliente
+            component: Cliente_busqueda
         },
         {
             path: '/Cliente/registrar/',
             name: "nuevo_cliente",
-            component: Cliente_busqueda
+            component: Cliente
         },
         {
             path: '/Reserva/reservar/',
