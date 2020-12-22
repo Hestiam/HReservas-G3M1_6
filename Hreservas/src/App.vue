@@ -7,7 +7,7 @@
         <button v-on:click="buscar_cli">Buscar Cliente</button>
         <button v-on:click="registrar_cli">Registar Cliente</button>
         <button v-on:click="reservar">Reservar</button>
-        <button v-on:click="buscar_res">Ver Reserva</button>
+        <button v-on:click="buscar_hab">Busqueda Habitacion</button>
       </nav>
     </div>
     <div class="main-component">
@@ -32,8 +32,8 @@ export default {
     reservar: function(){this.$router.push({ name: "nueva_reserva" });
     this.$router.go({ name: "nueva_reserva" });
     },
-    buscar_res: function(){this.$router.push({ name: "buscar_reserva" });
-    this.$router.go({ name: "buscar_reserva" });
+    buscar_hab: function(){this.$router.push({ name: "buscar_habitacion" });
+    this.$router.go({ name: "buscar_habitacion" });
     },
     buscar_cli: function(){this.$router.push({ name: "busqueda_Cliente" });
     this.$router.go({ name: "busqueda_Cliente" });

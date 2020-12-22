@@ -2,7 +2,7 @@ import vueRouter from 'vue-router'
 import Cliente from './components/Cliente'
 import Reserva from './components/Reservas'
 import Inicio from './components/Inicio'
-import Reservas_busqueda from './components/Reservas_busqueda'
+import Habitacion_busqueda from './components/Habitacion_busqueda'
 import Cliente_busqueda from './components/Cliente_busqueda'
 import App from './App'
 
@@ -36,9 +36,9 @@ const router = new vueRouter({
             component: Reserva
         },
         {
-            path: '/Reserva/buscar/',
-            name: "buscar_reserva",
-            component: Reservas_busqueda
+            path: '/Habitacion/buscar/',
+            name: "buscar_habitacion",
+            component: Habitacion_busqueda
         },
         
 
